@@ -1,5 +1,6 @@
 import './App.css'
 import BillInput from './components/BillInput'
+import TipSelection from './components/TipSelection'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <section className="calculator-card" aria-label="Tip calculator">
         <div className="calculator-left">
           <BillInput />
+          <TipSelection />
         </div>
 
         <div className="calculator-right">
