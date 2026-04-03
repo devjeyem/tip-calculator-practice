@@ -1,6 +1,7 @@
 import './App.css'
 import BillInput from './components/BillInput'
 import TipSelection from './components/TipSelection'
+import PeopleInput from './components/PeopleInput'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <div className="calculator-left">
           <BillInput />
           <TipSelection />
+          <PeopleInput />
         </div>
 
         <div className="calculator-right">
