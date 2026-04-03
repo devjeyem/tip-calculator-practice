@@ -1,24 +1,20 @@
-import { useState } from 'react'
 import iconPerson from '../../images/icon-person.svg'
 import './PeopleInput.css'
 
-function PeopleInput() {
-  const [people, setPeople] = useState<string>('')
-  const [hasError, setHasError] = useState<boolean>(false)
+type PeopleInputProps = {
+  value: string
+  onChange: (value: string) => void
+}
+
+function PeopleInput({ value, onChange }: PeopleInputProps) {
+  const hasError = value === '0'
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
+    const val = e.target.value
 
     // Allow empty string or whole positive numbers only
-    if (value === '' || /^\d+$/.test(value)) {
-      setPeople(value)
-
-      // Show error only when value is explicitly "0"
-      if (value === '0') {
-        setHasError(true)
-      } else {
-        setHasError(false)
-      }
+    if (val === '' || /^\d+$/.test(val)) {
+      onChange(val)
     }
   }
 
@@ -45,7 +41,7 @@ function PeopleInput() {
           id="people-field"
           type="number"
           placeholder="0"
-          value={people}
+          value={value}
           onChange={handleChange}
           min="0"
           step="1"

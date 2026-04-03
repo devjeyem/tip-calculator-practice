@@ -1,8 +1,24 @@
-import { useState } from 'react'
+type TipSelectionProps = {
+  selectedTip: number | null
+  customTip: string
+  onSelectTip: (tip: number) => void
+  onCustomTipChange: (value: string) => void
+}
 
-export default function TipSelection() {
-  const tipPercentages = ['5%', '10%', '15%', '25%', '50%']
-  const [selectedTip, setSelectedTip] = useState<string | null>(null)
+export default function TipSelection({
+  selectedTip,
+  customTip,
+  onSelectTip,
+  onCustomTipChange,
+}: TipSelectionProps) {
+  const tipPercentages = [5, 10, 15, 25, 50]
+
+  const handleCustomChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    if (value === '' || /^\d*$/.test(value)) {
+      onCustomTipChange(value)
+    }
+  }
 
   return (
     <div className="tip-selection">
@@ -12,10 +28,10 @@ export default function TipSelection() {
           <button
             key={tip}
             type="button"
-            className={`tip-btn ${selectedTip === tip ? 'active' : ''}`}
-            onClick={() => setSelectedTip(tip)}
+            className={`tip-btn ${selectedTip === tip && customTip === '' ? 'active' : ''}`}
+            onClick={() => onSelectTip(tip)}
           >
-            {tip}
+            {tip}%
           </button>
         ))}
         <input
@@ -23,7 +39,9 @@ export default function TipSelection() {
           className="tip-custom"
           placeholder="Custom"
           min="0"
-          onClick={() => setSelectedTip(null)}
+          value={customTip}
+          onChange={handleCustomChange}
+          onFocus={() => onSelectTip(-1)}
         />
       </div>
     </div>
