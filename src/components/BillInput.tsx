@@ -1,16 +1,18 @@
-import { useState } from 'react'
 import iconDollar from '../../images/icon-dollar.svg'
 import './BillInput.css'
 
-function BillInput() {
-  const [bill, setBill] = useState<string>('')
+type BillInputProps = {
+  value: string
+  onChange: (value: string) => void
+}
 
+function BillInput({ value, onChange }: BillInputProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
+    const val = e.target.value
 
     // Allow empty string or valid positive numbers (including decimals)
-    if (value === '' || /^\d*\.?\d{0,2}$/.test(value)) {
-      setBill(value)
+    if (val === '' || /^\d*\.?\d{0,2}$/.test(val)) {
+      onChange(val)
     }
   }
 
@@ -30,7 +32,7 @@ function BillInput() {
           id="bill-field"
           type="number"
           placeholder="0"
-          value={bill}
+          value={value}
           onChange={handleChange}
           min="0"
           step="0.01"
