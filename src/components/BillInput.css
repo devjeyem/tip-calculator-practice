@@ -1,0 +1,52 @@
+/* ============================================
+   BillInput Component Styles
+   ============================================ */
+
+.bill-input {
+  margin-bottom: 1.25rem;
+}
+
+.bill-input__label {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--color-dark-grayish-cyan);
+  margin-bottom: 0.375rem;
+}
+
+.bill-input__field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-very-light-grayish-cyan);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.bill-input__field:focus-within {
+  border-color: var(--color-primary);
+}
+
+.bill-input__icon {
+  width: 11px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.bill-input__field input {
+  width: 100%;
+  background: transparent;
+  color: var(--color-dark-cyan);
+  font-size: var(--font-size-input);
+  text-align: right;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.bill-input__field input::placeholder {
+  color: var(--color-grayish-cyan);
+  opacity: 0.6;
+}
