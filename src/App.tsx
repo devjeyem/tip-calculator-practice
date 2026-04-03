@@ -1,4 +1,5 @@
 import './App.css'
+import BillInput from './components/BillInput'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
 
       <section className="calculator-card" aria-label="Tip calculator">
         <div className="calculator-left">
-          <div className="placeholder">Left input side</div>
+          <BillInput />
         </div>
 
         <div className="calculator-right">
