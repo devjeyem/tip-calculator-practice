@@ -1,1 +1,152 @@
-/* App-level styles — component styles will be added in later feature branches */
+:root {
+  /* Use vars from index.css; add local overrides if needed */
+  --card-bg: var(--color-white);
+  --panel-bg: var(--color-dark-cyan);
+  --panel-text: var(--color-white);
+  --panel-light: #e5f8f7;
+}
+
+.app {
+  width: min(92vw, 912px);
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--color-dark-cyan);
+  font-size: 2rem;
+  letter-spacing: 0.55rem;
+}
+
+.logo h1 {
+  margin: 0;
+  line-height: 1;
+}
+
+.calculator-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.calculator-left,
+.calculator-right {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+.placeholder {
+  color: var(--color-dark-grayish-cyan);
+  border: 2px dashed var(--color-light-grayish-cyan);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .calculator-card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field label,
+.field p {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-dark-grayish-cyan);
+}
+
+.field input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-very-light-grayish-cyan);
+  color: var(--color-dark-cyan);
+}
+
+.tip-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.tip-buttons button,
+.tip-buttons input {
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  padding: 0.75rem;
+  background: var(--color-dark-cyan);
+  color: var(--color-white);
+}
+
+.tip-buttons input {
+  background: var(--color-very-light-grayish-cyan);
+  color: var(--color-dark-cyan);
+}
+
+.calculator-results {
+  background: var(--panel-bg);
+  color: var(--panel-text);
+}
+
+.result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.result-row p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.result-row span {
+  font-size: 0.7rem;
+  color: var(--panel-light);
+}
+
+.result-row strong {
+  font-size: 2.4rem;
+  color: var(--color-primary);
+}
+
+.reset-btn {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: var(--radius-sm);
+  background: #0c9fa8;
+  color: white;
+}
+
+.reset-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .calculator-card {
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+  }
+
+  .calculator-inputs,
+  .calculator-results {
+    padding: 1.5rem;
+  }
+}
+

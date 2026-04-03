@@ -2,8 +2,24 @@ import './App.css'
 
 function App() {
   return (
-    <main>
-      <h1>SPLI<br />TTER</h1>
+    <main className="app">
+      <header className="logo" aria-label="Site logo">
+        <h1>
+          SPLI
+          <br />
+          TTER
+        </h1>
+      </header>
+
+      <section className="calculator-card" aria-label="Tip calculator">
+        <div className="calculator-left">
+          <div className="placeholder">Left input side</div>
+        </div>
+
+        <div className="calculator-right">
+          <div className="placeholder">Right results side</div>
+        </div>
+      </section>
     </main>
   )
 }
