@@ -2,6 +2,7 @@ import './App.css'
 import BillInput from './components/BillInput'
 import TipSelection from './components/TipSelection'
 import PeopleInput from './components/PeopleInput'
+import ResultsDisplay from './components/ResultsDisplay'
 
 function App() {
   return (
@@ -20,10 +21,7 @@ function App() {
           <TipSelection />
           <PeopleInput />
         </div>
-
-        <div className="calculator-right">
-          <div className="placeholder">Right results side</div>
-        </div>
+        <ResultsDisplay />
       </section>
     </main>
   )

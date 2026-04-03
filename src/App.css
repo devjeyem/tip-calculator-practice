@@ -7,17 +7,23 @@
 }
 
 .app {
-  width: min(92vw, 912px);
-  margin: 0 auto;
+  width: min(96vw, 960px);
+  margin: 2rem auto;
   padding: 1.5rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: var(--color-dark-cyan);
   font-size: 2rem;
-  letter-spacing: 0.55rem;
+  letter-spacing: 0.42rem;
+  line-height: 1.1;
 }
 
 .logo h1 {
@@ -27,28 +33,28 @@
 
 .calculator-card {
   background: var(--color-white);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+  width: min(100%, 920px);
+  min-height: 420px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-very-light-grayish-cyan);
 }
 
-.calculator-left,
-.calculator-right {
+.calculator-left {
   background: var(--color-white);
   border-radius: var(--radius-md);
   padding: 1rem;
 }
 
-.placeholder {
-  color: var(--color-dark-grayish-cyan);
-  border: 2px dashed var(--color-light-grayish-cyan);
-  border-radius: var(--radius-sm);
-  padding: 1rem;
-  text-align: center;
+@media (min-width: 768px) {
+  .calculator-card {
+    grid-template-columns: 1fr 1fr;
+    min-height: 360px;
+  }
 }
 
 .tip-selection {
@@ -70,26 +76,28 @@
 }
 
 .tip-btn {
-  padding: 0.75rem;
+  padding: 0.8rem 0.6rem;
   border-radius: var(--radius-sm);
-  background: var(--color-dark-cyan);
-  color: var(--color-white);
+  background: #00474b;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: var(--font-weight-bold);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.15s ease, transform 0.15s ease;
   border: 2px solid transparent;
 }
 
 .tip-btn:hover {
-  background-color: var(--color-primary);
-  transform: translateY(-2px);
+  background-color: #26c0ab;
+  color: #00474b;
+  transform: translateY(-1px);
 }
 
 .tip-btn.active {
-  background-color: var(--color-primary);
-  border-color: var(--color-white);
-  box-shadow: 0 0 8px rgba(38, 186, 182, 0.5);
+  background-color: #26c0ab;
+  color: #00474b;
+  border-color: #26c0ab;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 .tip-custom {
@@ -100,21 +108,22 @@
   font-size: 1rem;
   font-weight: var(--font-weight-bold);
   text-align: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  cursor: text;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
   border: 2px solid transparent;
 }
 
 .tip-custom:hover {
   background-color: #d4f4f0;
-  border-color: var(--color-primary);
+  border-color: #26c0ab;
 }
 
 .tip-custom:focus {
-  background-color: var(--color-white);
-  border-color: var(--color-primary);
+  background-color: #ffffff;
+  border-color: #26c0ab;
   outline: none;
 }
+
 
 @media (min-width: 768px) {
   .calculator-card {
@@ -161,46 +170,6 @@
 .tip-buttons input {
   background: var(--color-very-light-grayish-cyan);
   color: var(--color-dark-cyan);
-}
-
-.calculator-results {
-  background: var(--panel-bg);
-  color: var(--panel-text);
-}
-
-.result-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.25rem;
-}
-
-.result-row p {
-  margin: 0;
-  font-size: 0.85rem;
-}
-
-.result-row span {
-  font-size: 0.7rem;
-  color: var(--panel-light);
-}
-
-.result-row strong {
-  font-size: 2.4rem;
-  color: var(--color-primary);
-}
-
-.reset-btn {
-  width: 100%;
-  padding: 0.9rem;
-  border-radius: var(--radius-sm);
-  background: #0c9fa8;
-  color: white;
-}
-
-.reset-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
 }
 
 @media (min-width: 768px) {
